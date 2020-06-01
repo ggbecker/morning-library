@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'morning_library_app.morning_library'
+    'morning_library_app.morning_library',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [

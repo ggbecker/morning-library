@@ -1,0 +1,15 @@
+
+{% load bootstrap4 %}
+
+{% block content %}
+    <h2>Tracks</h2>
+    {% for track in object_list %}
+    <ul>
+            <h2>{{ track.title }}</h2>
+            <li>{{ track.artist }}</li>
+            <li>{{ track.album }}</li>
+            <li>{{ track.year }}</li>
+            <li>{{ track.length }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}

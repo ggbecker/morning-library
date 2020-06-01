@@ -1,0 +1,24 @@
+
+{% load bootstrap4 %}
+
+{% block content %}
+    <h2>Morning Library</h2>
+    {% for libraryentry in object_list %}
+    <ul>
+            <li>{{ libraryentry.path }}</li>
+            <li>{{ libraryentry.location }}</li>
+
+        <ul>
+            <li>{{ libraryentry.track.title }}</li>
+            <li>{{ libraryentry.track.artist }}</li>
+            <li>{{ libraryentry.track.album }}</li>
+            <li>{{ libraryentry.track.year }}</li>
+            <li>{{ libraryentry.track.length }}</li>
+        </ul>
+            
+            <li>{{ libraryentry.owner }}</li>
+            <li>{{ libraryentry.rating }}</li>
+            <li>{{ libraryentry.timestamp }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}
