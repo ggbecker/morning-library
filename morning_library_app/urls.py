@@ -22,16 +22,13 @@ from django.conf.urls import url, include
 
 from rest_framework.routers import DefaultRouter
 
-from morning_library_app.morning_library.views import LibraryEntryViewSet, TrackViewSet, LibraryEntryListView, TrackListView
+from morning_library_app.morning_library.views import TrackViewSet, TrackListView
 
 router = DefaultRouter()
-router.register('libraryentry', LibraryEntryViewSet)
 router.register('track', TrackViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LibraryEntryListView.as_view()),
-    path('track/', TrackListView.as_view()),
-    url('^api/', include((router.urls, "libraryentry"))),
+    path('', TrackListView.as_view()),
     url('^api/', include((router.urls, "track"))),
 ]

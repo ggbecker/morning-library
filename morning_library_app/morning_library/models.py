@@ -12,17 +12,16 @@ class Rating(models.IntegerChoices):
     FIVE_STARS = 5
 
 class Track(models.Model):
-    title = models.CharField(max_length=255)
-    artist = models.CharField(max_length=255)
-    album = models.CharField(max_length=255)
-    year = models.CharField(max_length=255)
-    length = models.CharField(max_length=255)
-
-
-class LibraryEntry(models.Model):
-    path = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
-    track = models.ForeignKey(Track, on_delete=models.CASCADE)
-    owner = models.CharField(max_length=255, unique=True)
-    rating = models.IntegerField(null=True, blank=True, choices=Rating.choices)
+    title = models.CharField(max_length=255, blank=True, null=True)
+    artist = models.CharField(max_length=255, blank=True, null=True)
+    album = models.CharField(max_length=255, blank=True, null=True)
+    year = models.CharField(max_length=255, blank=True, null=True)
+    length = models.CharField(max_length=255, blank=True, null=True)
+    codec = models.CharField(max_length=255, blank=True, null=True)
+    sample_rate = models.CharField(max_length=255, blank=True, null=True)
+    bitrate = models.CharField(max_length=255, blank=True, null=True)
+    location = models.CharField(max_length=255, blank=True, null=True)
+    owner = models.CharField(max_length=255, blank=True, null=True)
+    rating = models.IntegerField(null=True, choices=Rating.choices)
     timestamp = models.DateTimeField(auto_now=True)
+    path = models.CharField(max_length=255, blank=True, null=True)
