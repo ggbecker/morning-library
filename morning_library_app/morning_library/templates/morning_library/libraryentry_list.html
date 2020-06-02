@@ -1,24 +1,17 @@
-
+{% load render_table from django_tables2 %}
 {% load bootstrap4 %}
+<!doctype html>
+<html>
+    <head>
+        <title>Music Library</title>
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
 
-{% block content %}
-    <h2>Morning Library</h2>
-    {% for libraryentry in object_list %}
-    <ul>
-            <li>{{ libraryentry.path }}</li>
-            <li>{{ libraryentry.location }}</li>
-
-        <ul>
-            <li>{{ libraryentry.track.title }}</li>
-            <li>{{ libraryentry.track.artist }}</li>
-            <li>{{ libraryentry.track.album }}</li>
-            <li>{{ libraryentry.track.year }}</li>
-            <li>{{ libraryentry.track.length }}</li>
-        </ul>
-            
-            <li>{{ libraryentry.owner }}</li>
-            <li>{{ libraryentry.rating }}</li>
-            <li>{{ libraryentry.timestamp }}</li>
-        </ul>
-    {% endfor %}
-{% endblock %}
+        {# Display django.contrib.messages as Bootstrap alerts #}
+        {% bootstrap_messages %}
+    </head>
+    <body>
+        {% render_table object_list %}
+    </body>
+</html>

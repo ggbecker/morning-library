@@ -30,7 +30,7 @@ router.register('track', TrackViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('libraryentry/', LibraryEntryListView.as_view()),
+    path('', LibraryEntryListView.as_view()),
     path('track/', TrackListView.as_view()),
     url('^api/', include((router.urls, "libraryentry"))),
     url('^api/', include((router.urls, "track"))),

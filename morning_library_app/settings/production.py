@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'morning_library_app.morning_library',
-    'bootstrap4'
+    'bootstrap4',
+    'django_tables2'
 ]
 
 MIDDLEWARE = [

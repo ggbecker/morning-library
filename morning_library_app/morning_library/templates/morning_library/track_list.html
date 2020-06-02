@@ -1,15 +1,17 @@
-
+{% load render_table from django_tables2 %}
 {% load bootstrap4 %}
+<!doctype html>
+<html>
+    <head>
+        <title>Tracks</title>
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
 
-{% block content %}
-    <h2>Tracks</h2>
-    {% for track in object_list %}
-    <ul>
-            <h2>{{ track.title }}</h2>
-            <li>{{ track.artist }}</li>
-            <li>{{ track.album }}</li>
-            <li>{{ track.year }}</li>
-            <li>{{ track.length }}</li>
-        </ul>
-    {% endfor %}
-{% endblock %}
+        {# Display django.contrib.messages as Bootstrap alerts #}
+        {% bootstrap_messages %}
+    </head>
+    <body>
+        {% render_table object_list %}
+    </body>
+</html>
