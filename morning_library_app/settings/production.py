@@ -90,8 +90,8 @@ WSGI_APPLICATION = 'morning_library_app.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "morning_library_app",
-        "USER": "morning_library_app",
+        "NAME": "morning_library",
+        "USER": "morning_library",
         "PASSWORD": os.getenv("DB_PASSWORD"),
         "HOST": os.getenv("DB_HOST"),
         "PORT": "",
