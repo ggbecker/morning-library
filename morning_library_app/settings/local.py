@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from morning_library_app.settings.production import *
+from .production import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '(hqiubz0(y8f8g#7fi0wrk@%283#=_2m3-og2tfy#v3)$e+pf3'
@@ -19,7 +19,7 @@ SECRET_KEY = '(hqiubz0(y8f8g#7fi0wrk@%283#=_2m3-og2tfy#v3)$e+pf3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 REST_FRAMEWORK = {       
     'DEFAULT_RENDERER_CLASSES': (

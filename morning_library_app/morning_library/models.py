@@ -1,8 +1,5 @@
 from django.db import models
-
-# Create your models here.
-
-from django.db import models
+from django.contrib.auth.models import User
 
 class Rating(models.IntegerChoices):
     ONE_STAR = 1
@@ -21,7 +18,7 @@ class Track(models.Model):
     sample_rate = models.CharField(max_length=255, blank=True, null=True)
     bitrate = models.CharField(max_length=255, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
-    owner = models.CharField(max_length=255, blank=True, null=True)
     rating = models.IntegerField(null=True, choices=Rating.choices)
     timestamp = models.DateTimeField(auto_now=True)
     path = models.CharField(max_length=255, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)

@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+
+  <p>In this page you find your API Token that you can use to upload metadata from your tracks.</p>
+
+  {% render_table object_list %}
+{% endblock %}

@@ -1,17 +1,6 @@
+{% extends "base_generic.html" %}
 {% load render_table from django_tables2 %}
-{% load bootstrap4 %}
-<!doctype html>
-<html>
-    <head>
-        <title>Tracks</title>
-        {# Load CSS and JavaScript #}
-        {% bootstrap_css %}
-        {% bootstrap_javascript jquery='full' %}
 
-        {# Display django.contrib.messages as Bootstrap alerts #}
-        {% bootstrap_messages %}
-    </head>
-    <body>
-        {% render_table object_list %}
-    </body>
-</html>
+{% block content %}
+    {% render_table object_list %}
+{% endblock %}
