@@ -6,6 +6,6 @@ class TrackTable(tables.Table):
 
     class Meta:
         model = Track
-        template_name = "django_tables2/bootstrap.html"
+        template_name = "django_tables2/bootstrap4.html"
         fields = ("title", "artist", "album", "year", "length", "codec", "location", "rating", "path")
         # attrs = {"class": "table"}
