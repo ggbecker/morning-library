@@ -8,7 +8,12 @@ from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Track
+from django_tables2 import SingleTableView
+from django_tables2 import SingleTableMixin
+from django_filters.views import FilterView
+
+from .models import Track, TrackFilter
+from .tables import TrackTable
 from .serializers import TrackSerializer
 
 class TrackViewSet(generics.CreateAPIView):
@@ -20,9 +25,12 @@ class TrackViewSet(generics.CreateAPIView):
         return self.create(request, *args, **kwargs)
 
 
-class TrackListView(LoginRequiredMixin, ListView):
+class TrackListView(LoginRequiredMixin, SingleTableMixin, FilterView):
     model = Track
+    table_class = TrackTable
     login_url = '/login/'
+    template_name = 'morning_library/track_list.html'
+    filterset_class = TrackFilter
     # redirect_field_name = 'redirect_to'
 
     def get_queryset(self):

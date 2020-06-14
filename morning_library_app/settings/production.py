@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'social_django',
     'sslserver',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
