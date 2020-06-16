@@ -3,7 +3,8 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
-
+from django.db.models import FloatField
+from django.db.models.functions import Cast
 
 from rest_framework import generics
 from rest_framework.authtoken.models import Token
@@ -51,7 +52,7 @@ def statistics(request):
             codec_statistics.update({codec: Track.objects.filter(user=request.user, codec=codec).count()})
 
     track_count = Track.objects.filter(user=request.user).count()
-    total_length = length_to_formatted_length(Track.objects.filter(user=request.user).aggregate(Sum('length'))['length__sum'])
+    total_length = length_to_formatted_length(Track.objects.filter(user=request.user).annotate(length_as_float=Cast('length', FloatField())).aggregate(Sum('length_as_float'))['length_as_float__sum'])
 
     return render(request, 'morning_library/statistics.html', {'statistics':
         {
