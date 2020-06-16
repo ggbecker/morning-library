@@ -28,6 +28,7 @@
 
           <ul class="sidebar-nav page-header">
             <li><a href="{% url 'index' %}">Music Library</a></li>
+            <li><a href="{% url 'statistics' %}">Statistics</a></li>
             <li><a href="{% url 'apitoken' %}">API Token</a></li>
             <li>-------------------</li>
 
@@ -42,12 +43,10 @@
             {% if filter %}
             <li>-------------------</li>
             <li>Search:</li>
-            <div class="container-fluid">
                 <form action="" method="get" class="form form-inline">
                     {% bootstrap_form filter.form layout='inline' %}
                     {% bootstrap_button 'Go' %}
                 </form>
-            </div>
             {% endif %}
           </ul>
           

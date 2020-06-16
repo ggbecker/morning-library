@@ -22,7 +22,7 @@ from django.conf.urls import url, include
 
 from rest_framework.routers import DefaultRouter
 
-from .morning_library.views import TrackViewSet, TrackListView, APITokenView
+from .morning_library.views import TrackViewSet, TrackListView, APITokenView, statistics
 
 # router = DefaultRouter()
 # router.register('track', TrackViewSet)
@@ -30,6 +30,7 @@ from .morning_library.views import TrackViewSet, TrackListView, APITokenView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TrackListView.as_view(), name='index'),
+    path('statistics/', statistics, name='statistics'),
     path('apitoken/', APITokenView.as_view(), name='apitoken'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('', include('django.contrib.auth.urls')),
