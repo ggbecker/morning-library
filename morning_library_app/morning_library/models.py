@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.postgres.search import SearchQuery, SearchVector
 
 import django_filters
 
@@ -36,11 +37,12 @@ class Track(models.Model):
 
 
 class TrackFilter(django_filters.FilterSet):
-    title = django_filters.CharFilter(lookup_expr='icontains')
-    artist = django_filters.CharFilter(lookup_expr='icontains')
-    album = django_filters.CharFilter(lookup_expr='icontains')
-    path = django_filters.CharFilter(lookup_expr='icontains')
+    search = django_filters.CharFilter(method='multiple_field_search', label='Search')
 
     class Meta:
         model = Track
-        fields = ['title', 'artist', 'album', 'path']
+        # fields = ['title', 'artist', 'album', 'path']
+        fields = ['search']
+
+    def multiple_field_search(self, queryset, name, value):
+        return Track.objects.annotate(search=SearchVector('title','artist', 'album', 'path')).filter(search=SearchQuery(value))
