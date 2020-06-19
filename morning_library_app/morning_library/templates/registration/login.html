@@ -26,14 +26,16 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="login" />
+    <input type="submit" value="Login" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
   
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <!-- <p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
+  <p>Don't have an account? <a href="{% url 'sign_up' %}">Sign Up</a></p>
 
-  <p><strong>-- OR --</strong></p>
-  <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+
+  <!-- <p><strong>-- OR --</strong></p>
+  <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a> -->
   
 {% endblock %}

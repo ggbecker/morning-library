@@ -37,7 +37,7 @@ class Track(models.Model):
 
 
 class TrackFilter(django_filters.FilterSet):
-    search = django_filters.CharFilter(method='multiple_field_search', label='Search')
+    search = django_filters.CharFilter(method='multiple_field_search', label='', )
 
     class Meta:
         model = Track

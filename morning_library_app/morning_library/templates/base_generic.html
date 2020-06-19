@@ -12,13 +12,15 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" href="{% static 'images/icon.png' %}">
 </head>
 <body>
     <div class="container-fluid">
         {% block topbar %}
 
         <ul class="navbar page-header">
-            <h1><a href="/">Morning Library</a></h1>
+            <img src="{% static 'images/logo.png' %}">
+            <!-- <h1><a href="/">Morning Library</a></h1> -->
         </ul>
         {% endblock %}
 
@@ -27,9 +29,10 @@
           {% block sidebar %}
 
           <ul class="sidebar-nav page-header">
-            <li><a href="{% url 'index' %}">Music Library</a></li>
+            <li><a href="{% url 'index' %}">Track List</a></li>
             <li><a href="{% url 'statistics' %}">Statistics</a></li>
-            <li><a href="{% url 'apitoken' %}">API Token</a></li>
+            <li><a href="{% url 'apitoken' %}">How to Upload</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
             <li>-------------------</li>
 
             {% if user.is_authenticated %}
@@ -38,16 +41,6 @@
             {% else %}
             <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
             {% endif %} 
-
-
-            {% if filter %}
-            <li>-------------------</li>
-            <li>Search:</li>
-                <form action="" method="get" class="form form-inline">
-                    {% bootstrap_form filter.form layout='inline' %}
-                    {% bootstrap_button 'Go' %}
-                </form>
-            {% endif %}
           </ul>
           
           <ul class="sidebar-nav">
