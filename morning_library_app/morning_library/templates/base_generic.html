@@ -29,9 +29,11 @@
           {% block sidebar %}
 
           <ul class="sidebar-nav page-header">
+            {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">Track List</a></li>
             <li><a href="{% url 'statistics' %}">Statistics</a></li>
             <li><a href="{% url 'apitoken' %}">How to Upload</a></li>
+            {% endif %}
             <li><a href="{% url 'about' %}">About</a></li>
             <li>-------------------</li>
 
