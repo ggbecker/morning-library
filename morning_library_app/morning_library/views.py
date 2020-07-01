@@ -82,6 +82,10 @@ def about(request):
     return render(request, 'morning_library/about.html')
 
 
+def index(request):
+    return render(request, 'morning_library/index.html')
+
+
 class APITokenView(LoginRequiredMixin, ListView):
     model = Token
     login_url = '/login/'

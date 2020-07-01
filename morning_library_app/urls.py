@@ -16,20 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-
 from django.contrib import admin
 from django.conf.urls import url, include
+from django.conf.urls.i18n import i18n_patterns
 
 from rest_framework.routers import DefaultRouter
 
-from .morning_library.views import TrackViewSet, TrackListView, APITokenView, statistics, about, sign_up
+from .morning_library.views import TrackViewSet, TrackListView, APITokenView, statistics, index, about, sign_up
 
 # router = DefaultRouter()
 # router.register('track', TrackViewSet)
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
-    path('', TrackListView.as_view(), name='index'),
+    path('tracklist/', TrackListView.as_view(), name='tracklist'),
+    path('', index, name='index'),
     path('statistics/', statistics, name='statistics'),
     path('about/', about, name='about'),
     path('apitoken/', APITokenView.as_view(), name='apitoken'),
@@ -37,7 +38,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('sign_up/', sign_up, name="sign_up"),
     # url('^api/', include((router.urls, "track"))),
-    url('api/track/$', TrackViewSet.as_view(), name='create')
-
-]
+    url('api/track/$', TrackViewSet.as_view(), name='create'),
+    prefix_default_language=False
+)
 

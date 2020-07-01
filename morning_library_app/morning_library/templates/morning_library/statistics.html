@@ -1,23 +1,24 @@
 {% extends "base_generic.html" %}
+{% load i18n %}
 {% load render_table from django_tables2 %}
 {% load bootstrap4 %}
 
 {% block content %}
 {% if statistics.track_count > 0 or statistics.total_length or statistics.codec_statistics %}
 {% if statistics.track_count > 0 %}
-<ul>Track Count: {{ statistics.track_count }}</ul>
+<ul>{% trans "Track Count:" %} {{ statistics.track_count }}</ul>
 {% endif %}
 {% if statistics.total_length %}
-<ul>Total Length: {{ statistics.total_length }}</ul>
+<ul>{% trans "Total Length:" %} {{ statistics.total_length }}</ul>
 {% endif %}
 {% if statistics.codec_statistics %}
-<ul>Track Details:</ul>
+<ul>{% trans "Track Details:" %}</ul>
 <div class="table-container">
     <table class="table">
         <thead>
             <tr>
-                <td><b>Codec</b></td>
-                <td><b>Count</b></td>
+                <td><b>{% trans "Codec" %}</b></td>
+                <td><b>{% trans "Count" %}</b></td>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +34,7 @@
 {% endif %}
 {% else %}
 <h5>
-Nothing to see here yet. Please upload your tracks first to have meaningful data showing here.
+{% trans "Nothing to see here yet. Please upload your tracks first to have meaningful data showing here." %}
 </h5>
 {% endif %}
 {% endblock %}

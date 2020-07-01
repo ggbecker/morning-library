@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -154,3 +155,16 @@ LOGIN_REDIRECT_URL = 'index'
 
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("DJANGO_SOCIAL_AUTH_FACEBOOK_KEY")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("DJANGO_SOCIAL_AUTH_FACEBOOK_SECRET")
+
+LOCALE_PATHS = (
+    os.path.join(os.path.dirname(__file__), "locale"),
+)
+
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = [
+    ('pt-br', _('Portuguese Brazilian')),
+    ('en', _('English')),
+]
+
+LANGUAGE_CODE = 'en'
