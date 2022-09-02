@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-01 20:45+0000\n"
+"POT-Creation-Date: 2020-07-01 21:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Gabriel Gaspar Becker <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese \n"
@@ -16,6 +16,60 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: morning_library_app/morning_library/models.py:18
+msgid "title"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:19
+#, fuzzy
+#| msgid "Statistics"
+msgid "artist"
+msgstr "Estatísticas"
+
+#: morning_library_app/morning_library/models.py:20
+msgid "album"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:21
+msgid "year"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:22
+#, fuzzy
+#| msgid "Total Length:"
+msgid "length"
+msgstr "Tempo Total:"
+
+#: morning_library_app/morning_library/models.py:23
+#, fuzzy
+#| msgid "Codec"
+msgid "codec"
+msgstr "Codec"
+
+#: morning_library_app/morning_library/models.py:24
+msgid "sample_rate"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:25
+msgid "bitrate"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:26
+msgid "local"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:27
+msgid "rating"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:28
+msgid "timestamp"
+msgstr ""
+
+#: morning_library_app/morning_library/models.py:29
+msgid "path"
+msgstr ""
 
 #: morning_library_app/morning_library/templates/authtoken/token_list.html:7
 msgid "How to upload metadata from your tracks"
@@ -57,19 +111,19 @@ msgstr "Sobre"
 msgid "Logged as:"
 msgstr "Logado como:"
 
-#: morning_library_app/morning_library/templates/base_generic.html:41
+#: morning_library_app/morning_library/templates/base_generic.html:42
 msgid "Logout"
 msgstr "Sair"
 
-#: morning_library_app/morning_library/templates/base_generic.html:43
+#: morning_library_app/morning_library/templates/base_generic.html:44
 msgid "Login"
 msgstr "Entrar"
 
-#: morning_library_app/morning_library/templates/morning_library/about.html:8
+#: morning_library_app/morning_library/templates/morning_library/about.html:7
 msgid "This website was inspired by a Facebook group called"
 msgstr "Este site foi inspirado em um grupo do Facebook chamado"
 
-#: morning_library_app/morning_library/templates/morning_library/about.html:8
+#: morning_library_app/morning_library/templates/morning_library/about.html:7
 msgid ""
 "where people gather to talk about this beautiful subgenre of Psy-Trance."
 msgstr ""
@@ -129,7 +183,9 @@ msgid "Sign Up"
 msgstr "Inscrever-se"
 
 #: morning_library_app/settings/production.py:181
-msgid "Portuguese"
+#, fuzzy
+#| msgid "Portuguese"
+msgid "Portuguese Brazilian"
 msgstr "Português"
 
 #: morning_library_app/settings/production.py:182

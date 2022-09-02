@@ -14,10 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
 from django.contrib import admin
-from django.conf.urls import url, include
+from django.conf.urls import include
 from django.conf.urls.i18n import i18n_patterns
 
 from rest_framework.routers import DefaultRouter
@@ -34,11 +34,11 @@ urlpatterns = i18n_patterns(
     path('statistics/', statistics, name='statistics'),
     path('about/', about, name='about'),
     path('apitoken/', APITokenView.as_view(), name='apitoken'),
-    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    re_path(r'^oauth/', include('social_django.urls', namespace='social')),
     path('', include('django.contrib.auth.urls')),
     path('sign_up/', sign_up, name="sign_up"),
-    # url('^api/', include((router.urls, "track"))),
-    url('api/track/$', TrackViewSet.as_view(), name='create'),
+    # re_path('^api/', include((router.urls, "track"))),
+    re_path('api/track/$', TrackViewSet.as_view(), name='create'),
     prefix_default_language=False
 )
 
