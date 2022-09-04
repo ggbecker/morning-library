@@ -1,9 +1,15 @@
 {% extends "base_generic.html" %}
+{% load i18n %}
 {% load render_table from django_tables2 %}
 
 {% block content %}
 
-  <p>In this page you find your API Token that you can use to upload metadata from your tracks.</p>
+  <h5>{% trans "How to upload metadata from your tracks" %}</h5>
+  <p>{% trans "First download" %} <b>{% trans "Morning Library Uploader" %}</b></p>
+  <p><a href="https://github.com/ggbecker/morning-library-uploader/releases/latest/download/MorningLibraryUploaderSetup.exe">Windows</a></p>
+  <p><a href="https://github.com/ggbecker/morning-library-uploader/releases/latest/download/MorningLibraryUploader.dmg">MacOS</a></p>
+
+  <p>{% trans "After installing the application, start it, select a folder and use the authentication key below." %}</p>
 
   {% render_table object_list %}
 {% endblock %}
