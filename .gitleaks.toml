@@ -1,0 +1,13 @@
+# Only [allowlist] is picked up by the LeakTK scanning service
+[allowlist]
+  description = "Repo Allowlist"
+  paths = [
+    # Some test ignores for working with the scanner's unit tests
+    '''morning_library_app/settings/local.py''',
+
+    # Ignore the .gitleaks.toml
+    '''\.gitleaks\.toml$''',
+  ]
+  regexes = [
+    # '''custom-regexes-to-ignore-here''',
+  ]
