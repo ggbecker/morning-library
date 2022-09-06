@@ -8,6 +8,6 @@ class TrackTable(tables.Table):
 
     class Meta:
         model = Track
-        template_name = "django_tables2/bootstrap4.html"
+        template_name = "django_tables2/bootstrap-responsive.html"
         fields = ("title", "artist", "album", "year", "length", "codec", "bitrate", "location", "path")
-        # attrs = {"class": "table"}
+        attrs = {"class": "table table-striped table-hover"}
